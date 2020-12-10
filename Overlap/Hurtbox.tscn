@@ -1,7 +1,44 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+var invincible = false setget set_invincible
+
+onready var timer = $Timer
+
+signal invincibility_started
+signal invincibility_ended
+
+func set_invincible(value):
+	invincible = value
+	if invincible == true:
+		emit_signal(\"invincibility_started\")
+	else:
+		emit_signal(\"invincibility_ended\")
+
+func start_invincibility(duration):
+	self.invincible = true
+	timer.start(duration)
+
+func _on_Timer_timeout():
+	self.invincible = false
+
+func _on_Hurtbox_invincibility_started():
+	set_deferred(\"monitorable\", false)
+
+func _on_Hurtbox_invincibility_ended():
+	monitorable = true
+"
 
 [node name="Hurtbox" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
+script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="invincibility_ended" from="." to="." method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="." to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
