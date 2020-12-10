@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://pixelated-loveNew.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://System/next-indicator.png" type="Texture" id=3]
+[ext_resource path="res://System/DialogueBox.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 11
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "IDLE"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 229.103, 48.1908 ), Vector2( 229.103, 51.7263 ) ]
+}
+
+[node name="Control" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.420456
+margin_bottom = -0.420456
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueBox" type="Control" parent="."]
+anchor_left = 0.501
+anchor_top = 1.0
+anchor_right = 0.501
+anchor_bottom = 1.0
+margin_left = -125.08
+margin_top = -74.4638
+margin_right = 126.92
+margin_bottom = -9.46381
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="DialogueBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.8316
+margin_top = 11.0
+margin_right = -10.1684
+margin_bottom = -9.00002
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.32549, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Hello there. This is a placeholder text. "
+text = "Hello there. This is a placeholder text. "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="DialogueBox"]
+
+[node name="next-indicator" type="Sprite" parent="DialogueBox"]
+position = Vector2( 229.103, 51.7263 )
+scale = Vector2( 0.348387, 0.348387 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueBox/next-indicator"]
+autoplay = "IDLE"
+anims/IDLE = SubResource( 2 )
+[connection signal="tween_completed" from="DialogueBox/Tween" to="DialogueBox" method="_on_Tween_tween_completed"]
