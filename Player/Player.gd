@@ -6,19 +6,26 @@ export var FRICTION = 500
 
 enum {
 	MOVE,
-	ATTACK
+	ATTACK,
 }
 
 
 var state = MOVE
 var velocity = Vector2.ZERO
+var dialogueNode = load("res://System/DialogueTest.tscn")
+var stats = PlayerStats
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var batHitbox = $HitboxPivot/BatHitbox
+onready var hurtBox = $Hurtbox
+onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
+	batHitbox.knockback_vector = Vector2.ZERO
 
 func _physics_process(delta):
 	match state:
@@ -34,6 +41,7 @@ func move_state(delta):
 	input_vector = input_vector.normalized()
 		
 	if input_vector != Vector2.ZERO:
+		batHitbox.knockback_vector = input_vector
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
@@ -53,7 +61,15 @@ func attack_state(delta):
 func attack_animation_finished():
 	state = MOVE
 
-
-
 func _on_Stats_no_health():
 	queue_free()
+
+func _on_Hurtbox_area_entered(_area):
+	stats.health -= 1
+	hurtBox.start_invincibility(0.5)
+	
+func _on_Hurtbox_invincibility_started():
+	blinkAnimationPlayer.play("Start")
+
+func _on_Hurtbox_invincibility_ended():
+	blinkAnimationPlayer.play("Stop")
