@@ -1,0 +1,197 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://System/Pause.gd" type="Script" id=1]
+[ext_resource path="res://System/Plain_Pause_Screen.png" type="Texture" id=2]
+[ext_resource path="res://System/menu_buttons/soundButton.png" type="Texture" id=3]
+[ext_resource path="res://System/menu_buttons/soundButtonPressed.png" type="Texture" id=4]
+[ext_resource path="res://System/menu_buttons/miscButtonPressed.png" type="Texture" id=5]
+[ext_resource path="res://System/menu_buttons/miscButton.png" type="Texture" id=6]
+[ext_resource path="res://System/menu_buttons/saveButtonPressed.png" type="Texture" id=7]
+[ext_resource path="res://System/menu_buttons/saveButton.png" type="Texture" id=8]
+[ext_resource path="res://System/menu_buttons/pauseText.png" type="Texture" id=9]
+[ext_resource path="res://System/menu_buttons/checkboxFilled.png" type="Texture" id=10]
+[ext_resource path="res://System/menu_buttons/checkboxEmpty.png" type="Texture" id=11]
+[ext_resource path="res://System/menu_buttons/sfxLabel.png" type="Texture" id=12]
+[ext_resource path="res://System/menu_buttons/musicLabel.png" type="Texture" id=13]
+[ext_resource path="res://System/menu_buttons/applyButtonPressed.png" type="Texture" id=14]
+[ext_resource path="res://System/menu_buttons/applyButton.png" type="Texture" id=15]
+[ext_resource path="res://System/soundMenu.gd" type="Script" id=16]
+[ext_resource path="res://System/menu_buttons/snowFXButton.png" type="Texture" id=17]
+[ext_resource path="res://System/miscMenu.gd" type="Script" id=18]
+
+[node name="pauseMenu" type="CanvasLayer"]
+
+[node name="pause" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blackBackground" type="ColorRect" parent="pause"]
+margin_right = 562.0
+margin_bottom = 348.0
+color = Color( 0, 0, 0, 0.443137 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blankMenu" type="TextureRect" parent="pause"]
+anchor_left = 6.026
+anchor_top = 3.067
+anchor_right = 6.026
+anchor_bottom = 3.067
+margin_left = -86.5626
+margin_top = -79.2154
+margin_right = 83.4374
+margin_bottom = 90.7846
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soundButton" type="TextureButton" parent="pause"]
+margin_left = 195.0
+margin_top = 111.0
+margin_right = 284.0
+margin_bottom = 144.0
+keep_pressed_outside = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="miscButton" type="TextureButton" parent="pause"]
+margin_left = 195.0
+margin_top = 139.97
+margin_right = 284.0
+margin_bottom = 172.97
+keep_pressed_outside = true
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exitButton" type="TextureButton" parent="pause"]
+margin_left = 195.0
+margin_top = 167.353
+margin_right = 284.0
+margin_bottom = 200.353
+keep_pressed_outside = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pauseText" type="Sprite" parent="pause"]
+position = Vector2( 240.054, 78.4728 )
+scale = Vector2( 1.22943, 1.22943 )
+texture = ExtResource( 9 )
+
+[node name="soundMenu" type="Control" parent="pause"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicBox" type="TextureButton" parent="pause/soundMenu"]
+margin_left = 271.065
+margin_top = 122.135
+margin_right = 284.065
+margin_bottom = 135.135
+toggle_mode = true
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicLabel" type="Sprite" parent="pause/soundMenu/musicBox"]
+position = Vector2( -55.0385, 5.78502 )
+scale = Vector2( 1.36077, 1.36077 )
+texture = ExtResource( 13 )
+
+[node name="sfxBox" type="TextureButton" parent="pause/soundMenu"]
+margin_left = 271.065
+margin_top = 148.129
+margin_right = 284.065
+margin_bottom = 161.129
+toggle_mode = true
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfxLabel" type="Sprite" parent="pause/soundMenu/sfxBox"]
+position = Vector2( -56.2016, 6.25423 )
+scale = Vector2( 1.36077, 1.36077 )
+texture = ExtResource( 12 )
+
+[node name="soundApply" type="TextureButton" parent="pause/soundMenu"]
+margin_left = 187.316
+margin_top = 158.0
+margin_right = 293.316
+margin_bottom = 208.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 14 )
+expand = true
+
+[node name="miscMenu" type="Control" parent="pause"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 18 )
+
+[node name="miscApply" type="TextureButton" parent="pause/miscMenu"]
+margin_left = 187.316
+margin_top = 158.0
+margin_right = 293.316
+margin_bottom = 208.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snowFXBox" type="TextureButton" parent="pause/miscMenu"]
+margin_left = 271.065
+margin_top = 136.115
+margin_right = 284.065
+margin_bottom = 149.115
+toggle_mode = true
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicLabel" type="Sprite" parent="pause/miscMenu/snowFXBox"]
+position = Vector2( -50.2885, 5.78502 )
+scale = Vector2( 1.36077, 1.36077 )
+texture = ExtResource( 17 )
+[connection signal="pressed" from="pause/soundButton" to="pause" method="_on_soundButton_pressed"]
+[connection signal="pressed" from="pause/miscButton" to="pause" method="_on_miscButton_pressed"]
+[connection signal="pressed" from="pause/exitButton" to="pause" method="_on_exitButton_pressed"]
+[connection signal="toggled" from="pause/soundMenu/musicBox" to="pause/soundMenu" method="_on_musicBox_toggled"]
+[connection signal="toggled" from="pause/soundMenu/sfxBox" to="pause/soundMenu" method="_on_sfxBox_toggled"]
+[connection signal="pressed" from="pause/soundMenu/soundApply" to="pause" method="_on_soundApply_pressed"]
+[connection signal="pressed" from="pause/miscMenu/miscApply" to="pause" method="_on_miscApply_pressed"]
+[connection signal="toggled" from="pause/miscMenu/snowFXBox" to="pause/miscMenu" method="_on_snowFXBox_toggled"]
