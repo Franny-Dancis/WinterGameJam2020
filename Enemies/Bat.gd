@@ -21,6 +21,7 @@ onready var playerDetectionZone = $playerDetectionZone
 onready var sprite = $AnimatedSprite
 onready var wanderController = $WanderController
 onready var animationPlayer = $AnimationPlayer
+onready var softCollision = $SoftCollision
 onready var hurtBox = $Hurtbox
 
 func _ready():
@@ -56,6 +57,8 @@ func _physics_process(delta):
 			else:
 				#If player leaves the detection zone, the bat returns to idling
 				state = IDLE
+	if softCollision.is_colliding():
+		velocity += softCollision.get_push_vector() * delta * 400
 	velocity = move_and_slide(velocity)
 
 
