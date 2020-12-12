@@ -35,9 +35,7 @@ func _on_miscButton_pressed():
 	get_node("miscMenu").visible = true
 
 func _on_miscApply_pressed():
-	soundButton.visible = true
-	miscButton.visible = true
-	exitButton.visible = true
+	mainMenuVisibleToggle()
 	get_node("miscMenu").visible = false
 
 func _on_exitButton_pressed():

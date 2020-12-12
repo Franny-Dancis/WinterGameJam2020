@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 229.103, 48.1908 ), Vector2( 229.103, 51.7263 ) ]
 }
 
-[node name="Control" type="Control"]
+[node name="DialogueTest" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,6 +46,7 @@ margin_right = 126.92
 margin_bottom = -9.46381
 script = ExtResource( 4 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 

@@ -9,24 +9,29 @@ var dialogue = [
 var dialogue_index = 0
 var finished = false
 
+onready var textLabel = $RichTextLabel
+onready var tween = $Tween
+onready var nextIndicator = $"next-indicator"
+
 func _ready():
 	load_dialogue()
 	
 func _process(delta):
-	$"next-indicator".visible = finished
+	nextIndicator.visible = finished
 	if Input.is_action_just_pressed("interact"):
+		self.visible = true
 		load_dialogue()
 	
 func load_dialogue():
 	if dialogue_index < dialogue.size():
 		finished = false
-		$RichTextLabel.bbcode_text = dialogue[dialogue_index]
-		$RichTextLabel.percent_visible = 0
-		$Tween.interpolate_property(
-			$RichTextLabel, "percent_visible", 0, 1, 1, 
+		textLabel.bbcode_text = dialogue[dialogue_index]
+		textLabel.percent_visible = 0
+		tween.interpolate_property(
+			textLabel, "percent_visible", 0, 1, 1, 
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 		)
-		$Tween.start()
+		tween.start()
 	else:
 		get_tree().paused = false
 		queue_free()

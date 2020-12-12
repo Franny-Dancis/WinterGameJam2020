@@ -100,8 +100,7 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0.8, 0.258824, 0.368627, 1 )
 custom_constants/shadow_offset_x = -1
 custom_constants/shadow_offset_y = 1
-text = "Version .01
-A FrannyDancis & Zad1ra Creation"
+text = "Version .01"
 valign = 2
 
 [node name="FadeIn" parent="." instance=ExtResource( 5 )]

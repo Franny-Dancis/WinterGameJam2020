@@ -23,7 +23,7 @@ onready var hurtBox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "_on_Stats_no_health")
 	animationTree.active = true
 	batHitbox.knockback_vector = Vector2.ZERO
 
@@ -63,13 +63,15 @@ func attack_animation_finished():
 
 func _on_Stats_no_health():
 	queue_free()
+	get_tree().change_scene("res://Title Screen/TitleScreen.tscn")
 
 func _on_Hurtbox_area_entered(_area):
 	stats.health -= 1
-	hurtBox.start_invincibility(0.5)
+	hurtBox.start_invincibility(1)
 	
 func _on_Hurtbox_invincibility_started():
 	blinkAnimationPlayer.play("Start")
 
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
+
