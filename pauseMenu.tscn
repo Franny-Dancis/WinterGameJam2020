@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://System/Pause.gd" type="Script" id=1]
 [ext_resource path="res://System/Plain_Pause_Screen.png" type="Texture" id=2]
@@ -6,8 +6,8 @@
 [ext_resource path="res://System/menu_buttons/soundButtonPressed.png" type="Texture" id=4]
 [ext_resource path="res://System/menu_buttons/miscButtonPressed.png" type="Texture" id=5]
 [ext_resource path="res://System/menu_buttons/miscButton.png" type="Texture" id=6]
-[ext_resource path="res://System/menu_buttons/saveButtonPressed.png" type="Texture" id=7]
-[ext_resource path="res://System/menu_buttons/saveButton.png" type="Texture" id=8]
+[ext_resource path="res://System/menu_buttons/Button_Tag__Text_Pressed_3.png" type="Texture" id=7]
+[ext_resource path="res://System/menu_buttons/Button_Tag__Text_3_Updated.png" type="Texture" id=8]
 [ext_resource path="res://System/menu_buttons/pauseText.png" type="Texture" id=9]
 [ext_resource path="res://System/menu_buttons/checkboxFilled.png" type="Texture" id=10]
 [ext_resource path="res://System/menu_buttons/checkboxEmpty.png" type="Texture" id=11]
@@ -18,6 +18,10 @@
 [ext_resource path="res://System/soundMenu.gd" type="Script" id=16]
 [ext_resource path="res://System/menu_buttons/snowFXButton.png" type="Texture" id=17]
 [ext_resource path="res://System/miscMenu.gd" type="Script" id=18]
+[ext_resource path="res://System/menu_buttons/Exit_Confirm_Dialogue.png" type="Texture" id=19]
+[ext_resource path="res://System/menu_buttons/Quit_Button.png" type="Texture" id=20]
+[ext_resource path="res://System/menu_buttons/Back_Button.png" type="Texture" id=21]
+[ext_resource path="res://Sounds/UI_Button_3.wav" type="AudioStream" id=22]
 
 [node name="pauseMenu" type="CanvasLayer"]
 
@@ -187,6 +191,42 @@ __meta__ = {
 position = Vector2( -50.2885, 5.78502 )
 scale = Vector2( 1.36077, 1.36077 )
 texture = ExtResource( 17 )
+
+[node name="areYouSure" type="Control" parent="pause"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="pause/areYouSure"]
+margin_left = 191.409
+margin_top = 79.4103
+margin_right = 287.409
+margin_bottom = 152.41
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitConfirm" type="TextureButton" parent="pause/areYouSure"]
+margin_left = 206.411
+margin_top = 122.53
+margin_right = 234.411
+margin_bottom = 137.53
+texture_normal = ExtResource( 20 )
+
+[node name="quitCancel" type="TextureButton" parent="pause/areYouSure"]
+margin_left = 244.0
+margin_top = 123.0
+margin_right = 272.0
+margin_bottom = 138.0
+texture_normal = ExtResource( 21 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pause"]
+stream = ExtResource( 22 )
+bus = "SFX"
 [connection signal="pressed" from="pause/soundButton" to="pause" method="_on_soundButton_pressed"]
 [connection signal="pressed" from="pause/miscButton" to="pause" method="_on_miscButton_pressed"]
 [connection signal="pressed" from="pause/exitButton" to="pause" method="_on_exitButton_pressed"]
@@ -195,3 +235,5 @@ texture = ExtResource( 17 )
 [connection signal="pressed" from="pause/soundMenu/soundApply" to="pause" method="_on_soundApply_pressed"]
 [connection signal="pressed" from="pause/miscMenu/miscApply" to="pause" method="_on_miscApply_pressed"]
 [connection signal="toggled" from="pause/miscMenu/snowFXBox" to="pause/miscMenu" method="_on_snowFXBox_toggled"]
+[connection signal="pressed" from="pause/areYouSure/quitConfirm" to="pause" method="_on_quitConfirm_pressed"]
+[connection signal="pressed" from="pause/areYouSure/quitCancel" to="pause" method="_on_quitCancel_pressed"]

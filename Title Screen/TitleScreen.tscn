@@ -1,15 +1,183 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://pixelated-loveNew.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Title Screen/Buttons/CreditsButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Title Screen/Buttons/NewGameButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Title Screen/Buttons/TutorialButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Title Screen/Buttons/MenuButton.gd" type="Script" id=7]
+[ext_resource path="res://Title Screen/hillsClose.png" type="Texture" id=6]
 [ext_resource path="res://Title Screen/title_screen.gd" type="Script" id=8]
+[ext_resource path="res://Title Screen/sleeping.png" type="Texture" id=9]
+[ext_resource path="res://Title Screen/Wake_Up.png" type="Texture" id=10]
+[ext_resource path="res://Title Screen/Falling_Elf-Sheet.png" type="Texture" id=12]
+[ext_resource path="res://Title Screen/Sleigh_103x51.png" type="Texture" id=13]
+[ext_resource path="res://Title Screen/Hill_Menu_BG.png" type="Texture" id=14]
+[ext_resource path="res://Title Screen/allTreePanning.png" type="Texture" id=15]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 38, 61 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 9 )
+region = Rect2( 38, 0, 38, 61 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 9 )
+region = Rect2( 76, 0, 38, 61 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 9 )
+region = Rect2( 114, 0, 38, 61 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 15 )
+region = Rect2( 3584, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 15 )
+region = Rect2( 3840, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 15 )
+region = Rect2( 4096, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 15 )
+region = Rect2( 4352, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 15 )
+region = Rect2( 4608, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 15 )
+region = Rect2( 4864, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 15 )
+region = Rect2( 5120, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 15 )
+region = Rect2( 5376, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 15 )
+region = Rect2( 5632, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 15 )
+region = Rect2( 5888, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 15 )
+region = Rect2( 6144, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 15 )
+region = Rect2( 6400, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 15 )
+region = Rect2( 6656, 0, 256, 42 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 15 )
+region = Rect2( 6912, 0, 256, 42 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 16.0
+} ]
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 103, 51 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 13 )
+region = Rect2( 103, 0, 103, 51 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 13 )
+region = Rect2( 206, 0, 103, 51 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 13 )
+region = Rect2( 309, 0, 103, 51 )
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 65, 53 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 10 )
+region = Rect2( 65, 0, 65, 53 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 10 )
+region = Rect2( 130, 0, 65, 53 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 10 )
+region = Rect2( 195, 0, 65, 53 )
+
+[sub_resource type="SpriteFrames" id=30]
+animations = [ {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=31]
+resource_name = "falling"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 7, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 400, 112 ), Vector2( 312, 128 ), Vector2( 216, 192 ), Vector2( 112, 264 ) ]
+}
+
+[sub_resource type="DynamicFont" id=32]
 size = 11
 font_data = ExtResource( 1 )
 
@@ -20,6 +188,54 @@ script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="backGround" type="Sprite" parent="."]
+position = Vector2( 328, 152 )
+scale = Vector2( 1.53125, 2 )
+texture = ExtResource( 14 )
+
+[node name="hillsClose" type="Sprite" parent="."]
+position = Vector2( 256, 136 )
+scale = Vector2( 1.40625, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="sleepingAnimation" type="AnimatedSprite" parent="."]
+position = Vector2( 392, 56 )
+scale = Vector2( 1.22243, 1.22243 )
+frames = SubResource( 5 )
+frame = 3
+playing = true
+
+[node name="darkestTrees" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 288, 256 )
+scale = Vector2( 2.72619, 2.72619 )
+frames = SubResource( 20 )
+frame = 10
+playing = true
+
+[node name="santaSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 432, 104 )
+frames = SubResource( 25 )
+frame = 2
+playing = true
+
+[node name="wakeUp" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 424, 48 )
+frames = SubResource( 30 )
+frame = 2
+playing = true
+
+[node name="fallingElf" type="Sprite" parent="."]
+visible = false
+position = Vector2( 112, 264 )
+texture = ExtResource( 12 )
+hframes = 8
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fallingElf"]
+anims/falling = SubResource( 31 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 12.0
@@ -39,64 +255,41 @@ stretch_mode = 4
 [node name="CenterRow" type="HBoxContainer" parent="Menu"]
 margin_top = 68.0
 margin_right = 456.0
-margin_bottom = 172.0
+margin_bottom = 147.0
 size_flags_vertical = 3
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_right = 226.0
-margin_bottom = 104.0
+margin_right = 456.0
+margin_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 alignment = 1
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
-margin_right = 226.0
-margin_bottom = 28.0
+margin_top = 6.0
+margin_right = 456.0
+margin_bottom = 34.0
 rect_min_size = Vector2( 0, 0 )
 focus_mode = 0
 enabled_focus_mode = 0
 sceneToLoad = "res://World.tscn"
 
-[node name="TutorialButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 6 )]
-margin_top = 38.0
-margin_right = 226.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 0, 0 )
-focus_mode = 0
-enabled_focus_mode = 0
-script = ExtResource( 7 )
-sceneToLoad = "res://Game/Tutorial.tscn"
-
 [node name="CreditsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
-margin_top = 76.0
-margin_right = 226.0
-margin_bottom = 104.0
+margin_top = 44.0
+margin_right = 456.0
+margin_bottom = 72.0
 rect_min_size = Vector2( 0, 0 )
 focus_mode = 0
 enabled_focus_mode = 0
 sceneToLoad = "res://Game/Credits.tscn"
 
-[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
-margin_left = 230.0
-margin_right = 456.0
-margin_bottom = 104.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tutorial" type="TextureRect" parent="Menu/CenterRow/CenterContainer"]
-margin_left = 81.0
-margin_top = 20.0
-margin_right = 145.0
-margin_bottom = 84.0
-texture = ExtResource( 2 )
-
 [node name="VersionLabel" type="Label" parent="Menu"]
-margin_top = 176.0
+margin_top = 151.0
 margin_right = 456.0
 margin_bottom = 230.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 32 )
 custom_colors/font_color_shadow = Color( 0.8, 0.258824, 0.368627, 1 )
 custom_constants/shadow_offset_x = -1
 custom_constants/shadow_offset_y = 1
