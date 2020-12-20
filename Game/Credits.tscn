@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/NewGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pixelated-loveNew.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Title Screen/Hill_Menu_BG.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 9
 font_data = ExtResource( 2 )
 
 [node name="Credits" instance=ExtResource( 1 )]
+
+[node name="Hill_Menu_BG" type="Sprite" parent="." index="0"]
+position = Vector2( 328, 152 )
+scale = Vector2( 1.531, 2 )
+texture = ExtResource( 3 )
 
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
 margin_left = 141.0
@@ -18,6 +27,8 @@ margin_bottom = 172.0
 [node name="Label" parent="CenterContainer/VBoxContainer" index="0"]
 margin_right = 197.0
 margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = -2
 text = "Programming: FrannyDancis
 Art: Zad1ra
@@ -28,12 +39,12 @@ margin_top = 76.0
 margin_right = 197.0
 margin_bottom = 104.0
 
-[node name="Label" type="Label" parent="." index="1"]
+[node name="Label" type="Label" parent="." index="2"]
 margin_left = 3.0
 margin_top = 209.0
 margin_right = 103.0
 margin_bottom = 238.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0.305882, 0.0941176, 0.486275, 1 )
 custom_constants/shadow_offset_x = -2
 custom_constants/shadow_offset_y = 2
