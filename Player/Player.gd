@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
+
 export var ACCELERATION = 500
 export var MAX_SPEED = 100
 export var FRICTION = 500
@@ -14,6 +16,7 @@ var state = MOVE
 var velocity = Vector2.ZERO
 var dialogueNode = load("res://System/DialogueTest.tscn")
 var stats = PlayerStats
+var score = 0
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -64,10 +67,13 @@ func attack_animation_finished():
 func _on_Stats_no_health():
 	queue_free()
 	get_tree().change_scene("res://Title Screen/TitleScreen.tscn")
+	stats.health = 5
 
 func _on_Hurtbox_area_entered(_area):
 	stats.health -= 1
-	hurtBox.start_invincibility(1)
+	hurtBox.start_invincibility(1.5)
+	var playerHurtSound = PlayerHurtSound.instance()
+	get_tree().current_scene.add_child(playerHurtSound)
 	
 func _on_Hurtbox_invincibility_started():
 	blinkAnimationPlayer.play("Start")
@@ -75,3 +81,11 @@ func _on_Hurtbox_invincibility_started():
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
 
+func _on_collectableNode_body_entered(body):
+	if stats.health <= 4:
+		stats.health += 1
+
+func _on_present_body_entered(body):
+	score += 1
+	if score == 3:
+		get_tree().change_scene("res://Game/Credits.tscn")
