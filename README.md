@@ -6,6 +6,11 @@ Music: FabCho
 
 
 Programs Used: 
+
 Godot
+
 Aseprite
+
 First Commit: 12/5/2020
+
+Last Commit: 12/19/2020
