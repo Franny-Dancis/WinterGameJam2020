@@ -31,7 +31,7 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = -2
 text = "Programming: FrannyDancis
-Art: Zad1ra
+Art: Sam Mercado
 Music & Sound: FabCho"
 
 [node name="Button" parent="CenterContainer/VBoxContainer" index="1"]

@@ -87,5 +87,20 @@ func _on_collectableNode_body_entered(body):
 
 func _on_present_body_entered(body):
 	score += 1
+	print(score)
+	if score == 3:
+		get_tree().change_scene("res://Game/Credits.tscn")
+
+
+func _on_present2_body_entered(body):
+	score += 1
+	print(score)
+	if score == 3:
+		get_tree().change_scene("res://Game/Credits.tscn")
+
+
+func _on_present3_body_entered(body):
+	score += 1
+	print(score)
 	if score == 3:
 		get_tree().change_scene("res://Game/Credits.tscn")
