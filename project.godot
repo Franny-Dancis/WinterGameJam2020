@@ -17,7 +17,6 @@ _global_script_class_icons={
 
 config/name="Winter Game Jam Project"
 run/main_scene="res://Title Screen/TitleScreen.tscn"
-config/icon="res://icon.png"
 
 [autoload]
 
